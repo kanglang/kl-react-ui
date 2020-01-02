@@ -1,13 +1,16 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+// 导入每次删除文件夹的插件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
-    entry: path.join(__dirname, "example/src/index.js"),
+    entry: path.join(__dirname, "./src/index.js"),
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        libraryTarget: 'commonjs2'
+        path: path.join(__dirname, './lib'),
+        filename: 'index.js',
+        libraryTarget: 'umd',  //发布组件专用
+        library: 'ReactCmp',
     },
     module: {
         rules: [{
@@ -28,9 +31,8 @@ module.exports = {
             }
         }]
     },
-    externals: {
-        react: 'react' //打包时候排除react
-    },
+    devtool: 'cheap-module-source-map',
+    plugins: [new CleanWebpackPlugin()],
     externals: [
         {
             react: 'react' //打包时候排除react

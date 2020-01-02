@@ -1,8 +1,12 @@
-node_modules
-example
-src
+/node_modules
+/example
 .babelrc
+.local
+.idea
+.vscode
+.DS_Store
 package-lock.json
 webpack.dev.config.js
 webpack.prod.config.js
-README.md
+yarn.lock
+yarn-error.log

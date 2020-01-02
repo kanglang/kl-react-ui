@@ -8,7 +8,7 @@ module.exports = {
     entry: path.join(__dirname, "example/src/index.js"),
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, './dist'),
     },
     module: {
         rules: [{
@@ -29,7 +29,7 @@ module.exports = {
             }
         }]
     },
-    devtool: 'inline-source-map', // 追踪错误提示
+    devtool: 'cheap-module-eval-source-map',
     plugins: [htmlWebpackPlugin],
     resolve: {
         extensions: [".js", ".jsx"]

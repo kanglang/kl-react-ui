@@ -1,7 +1,8 @@
 /node_modules
 /npm-debug.log
+/dist
+/lib
 .idea
-dist
 **/.DS_Store
 .vscode
 .local
