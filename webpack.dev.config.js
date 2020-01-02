@@ -1,3 +1,4 @@
+
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
@@ -25,7 +26,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
                 limit: 8192,
-                name: '[name].[hash].[ext]'
+                name: 'images/[name].[hash].[ext]'
             }
         }]
     },
