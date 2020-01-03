@@ -1,14 +1,15 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "example/src/index.html")
-});
+// 导入每次删除文件夹的插件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
+
 module.exports = {
     mode: 'development',
     entry: path.join(__dirname, "example/src/index.js"),
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
     },
     module: {
@@ -18,20 +19,30 @@ module.exports = {
             exclude: /node_modules/
         },
         {
+            test: /\.css$/,
+            use: ["style-loader", 'css-loader']
+        },
+        {
             test: /\.scss$/,
             use: ["style-loader", 'css-loader', 'sass-loader']
         },
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            loader: 'url-loader',
-            options: {
-                limit: 8192,
-                name: 'images/[name].[hash].[ext]'
-            }
+            loader: 'file-loader'
         }]
     },
     devtool: 'cheap-module-eval-source-map',
-    plugins: [htmlWebpackPlugin],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            title: "a mobile preview",
+            template: path.join(__dirname, "example/src/index.html"),
+            meta: {
+                'viewport': 'width=device-width, user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover'
+            }
+        })
+    ],
     resolve: {
         extensions: [".js", ".jsx"]
     },
