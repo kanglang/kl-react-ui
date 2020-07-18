@@ -30,7 +30,7 @@ module.exports = {
         },
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, //
-            loader: 'file-loader'
+            loader: 'url-loader'
         }]
     },
     devtool: 'cheap-module-source-map',

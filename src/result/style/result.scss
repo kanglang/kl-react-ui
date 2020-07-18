@@ -36,4 +36,17 @@ $kl-result: kl-result;
         padding    : 20px;
         color      : #888;
     }
+    &-btnwrap {
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+        &-btn{
+            width: 30%;
+            background-color: #52ccb8;
+            border-radius: 5px;
+            margin: 0 auto;
+            color: #fff;
+            margin-top: 20px;
+        }
+    }
 }

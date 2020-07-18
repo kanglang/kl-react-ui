@@ -13,8 +13,12 @@ class Result extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  finish(){
+    this.props.finish && this.props.finish();
+  }
   render() {
-    const { resultTile, resultReason, resultType } = this.props;
+    const { resultTile, resultReason, resultType, btnTip } = this.props;
 
     return (
       <div className="kl-result">
@@ -27,6 +31,9 @@ class Result extends React.Component {
             <div className="kl-result-title">{resultTile ? resultTile : "失败"}</div>
         }
         <div className="kl-result-reason">{resultReason ? resultReason : "亲亲，不管成功还是失败，只有有恒心不放弃，生活都会向好的方向发展，让我们一起加油！"}</div>
+        <div className="kl-result-btnwrap">
+          <div className="kl-result-btnwrap-btn" onClick={()=>this.finish()}>{btnTip ? btnTip : '完成'}</div>
+        </div>
       </div>
     )
   };

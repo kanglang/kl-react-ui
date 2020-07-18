@@ -21,12 +21,16 @@ class App extends Component {
     constructor(props) {
         super(props);
     }
+    goBack(){
+        alert(2)
+    }
     render() {
         return (
             <Result
                 resultType="success"
             // resultTile="成功"
             // resultReason="xxxxxx"
+                finish={this.goBack}
             />
         );
     }
