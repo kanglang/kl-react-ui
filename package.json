@@ -1,11 +1,10 @@
 {
   "name": "kl-react-ui",
-  "version": "1.2.6",
+  "version": "1.2.9",
   "description": "",
   "main": "lib/main.index.js",
   "files": [
-    "example",
-    "src"
+    "lib"
   ],
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",

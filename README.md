@@ -1,12 +1,14 @@
-## 如何启动项目进行测试
+# 如何启动项目进行测试
 
-### 'npm run start'
+###  npm install
 
-* 项目中的example文件是测试文件，执行'npm run start'可启动测试项目，输入'localhost:3001'即可启动
+### npm run start
 
-### 'npm run build'
+> 输入'localhost:3001'即可启动
 
-* 打包项目进行发布
+### npm run build
+
+> 打包项目进行发布
 ---
 # 组件
 

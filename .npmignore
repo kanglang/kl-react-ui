@@ -1,5 +1,6 @@
 /node_modules
 /example
+./src
 .babelrc
 .local
 .idea
@@ -11,4 +12,10 @@ webpack.prod.config.js
 yarn.lock
 yarn-error.log
 MY.md
-./src
+npm-debug.log
+.*.swp
+._*
+.git
+.hg
+.npmrc
+/lib

@@ -1,4 +1,9 @@
-
+/**
+ * @author kanglang
+ * @description 常用的正则表达式
+ * @createDate 2019/6/18
+ * 
+ */
 export default {
     // 全量手机号
     regPhone: /^1\d{10}$/,

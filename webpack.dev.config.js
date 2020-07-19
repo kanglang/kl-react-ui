@@ -32,7 +32,7 @@ module.exports = {
         },
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            use:['url-loader?limit=8192&name=./[name]_[hash].[ext]']
+            use:'url-loader'
         }]
     },
     devtool: 'cheap-module-eval-source-map',
