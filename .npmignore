@@ -11,3 +11,4 @@ webpack.prod.config.js
 yarn.lock
 yarn-error.log
 MY.md
+./src

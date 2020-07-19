@@ -15,7 +15,11 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
-            use: "babel-loader",
+            use: [
+                {
+                    loader:"babel-loader"   //该loader会对js进行转换
+                }
+            ],
             exclude: /node_modules/
         },
         {
@@ -28,7 +32,7 @@ module.exports = {
         },
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            loader: 'url-loader'
+            use:['url-loader?limit=8192&name=./[name]_[hash].[ext]']
         }]
     },
     devtool: 'cheap-module-eval-source-map',
@@ -36,7 +40,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: "a mobile preview",
+            title: "kl-react-ui",
             template: path.join(__dirname, "example/src/index.html"),
             meta: {
                 'viewport': 'width=device-width, user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover'

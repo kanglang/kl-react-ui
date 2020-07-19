@@ -17,7 +17,11 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
-            use: "babel-loader",
+            use: [
+                {
+                    loader:"babel-loader"   //该loader会对js进行转换
+                }
+            ],
             exclude: /node_modules/
         },
         {
@@ -29,8 +33,8 @@ module.exports = {
             use: ["style-loader", 'css-loader', 'sass-loader']
         },
         {
-            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, //
-            loader: 'url-loader'
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, 
+            use:['url-loader?limit=8192&name=./[name][hash].[ext]']
         }]
     },
     devtool: 'cheap-module-source-map',
@@ -47,8 +51,4 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx"]
     },
-    devServer: {
-        port: 3001,
-        contentBase: './dist'
-    }
 };

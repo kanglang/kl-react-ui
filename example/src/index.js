@@ -4,10 +4,11 @@
  * @LastEditTime : 2019-12-29 23:58:09
  * @Description: 这里进行测试组件
  */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import { Result } from '../../src/index';
+import { Result, Klutil } from '../../src/index';
 
+const onlyHan  = Klutil.onlyHan;
 
 
 /**
@@ -20,18 +21,32 @@ import { Result } from '../../src/index';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username: ''
+        }
     }
-    goBack(){
+    goBack() {
         alert(2)
+    }
+    componentDidMount() {
+    }
+    changeValue(e) {
+        const username =  e.target.value;
+        console.log(!onlyHan.test(username))
+       
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     }
     render() {
         return (
-            <Result
-                resultType="success"
-            // resultTile="成功"
-            // resultReason="xxxxxx"
-                finish={this.goBack}
-            />
+            <Fragment>
+                {/* <Result
+                    resultType="success"
+                    finish={this.goBack}
+                /> */}
+                <input value={this.state.username} name="username" onChange={this.changeValue.bind(this)} />
+            </Fragment>
         );
     }
 }
